@@ -5,6 +5,7 @@ import jwt
 import json
 import socket
 import base64
+import random
 
 """/*****************************************************************************
      * Project:     ApproovServerDemo
@@ -73,4 +74,4 @@ def returnShape():
   return shapes[random.randint(0, len(shapes)-1)]
 
 if __name__ == "__main__":
-  app.run()
+  app.run(debug=False, host='0.0.0.0', port=5000)
