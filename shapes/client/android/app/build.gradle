@@ -1,0 +1,41 @@
+apply plugin: 'com.android.model.application'
+
+model {
+    android {
+        compileSdkVersion = 23
+        buildToolsVersion = "23.0.2"
+
+        defaultConfig {
+            applicationId = "com.criticalblue.demo"
+            minSdkVersion.apiLevel = 11
+            targetSdkVersion.apiLevel = 23
+            versionCode = 1
+            versionName = "1.0"
+        }
+    }
+
+    android.buildTypes {
+        debug {
+            minifyEnabled = false
+            useProguard = false
+        }
+        release {
+            minifyEnabled = false
+            useProguard = false
+            proguardFiles.add(file("proguard-rules.pro"))
+        }
+    }
+
+    android.packagingOptions {
+        exclude "META-INF/notice.txt"
+        exclude "META-INF/license.txt"
+    }
+}
+
+dependencies {
+    compile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'io.jsonwebtoken:jjwt:0.6.0'
+    compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile project(':approov_library')
+}
