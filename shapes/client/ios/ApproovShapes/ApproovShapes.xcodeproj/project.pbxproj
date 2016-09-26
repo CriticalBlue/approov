@@ -40,7 +40,7 @@
 		311565FB1D95858100DD4257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31DBB8711D9919EE0053B9E0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		31DBB8731D9919FF0053B9E0 /* ShapeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeViewController.swift; sourceTree = "<group>"; };
-		31DBB8751D9951FB0053B9E0 /* Approov.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Approov.framework; sourceTree = "<group>"; };
+		31DBB8751D9951FB0053B9E0 /* Approov.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Approov.framework; path = "/Users/simonr-mac/Documents/xcode-workspace/approov/shapes/client/ios/ApproovShapes/Approov.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,6 @@
 		311565E31D95858000DD4257 = {
 			isa = PBXGroup;
 			children = (
-				31DBB8751D9951FB0053B9E0 /* Approov.framework */,
 				311565EE1D95858100DD4257 /* ApproovShapes */,
 				311565ED1D95858100DD4257 /* Products */,
 			);
