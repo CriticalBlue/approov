@@ -1,1 +1,12 @@
 The Android Shapes demo app.
+
+The containing "android" folder can be imported into Android Studio as an exisiting project. 
+
+To build a runnable demo app you must be a registered Approov customer on the trial tier or higher.
+
+To make the Android Shapes demo app functional you will need to drop an Approov aar into the "approov_library" folder. 
+See the approov_library README for details.
+At this point the app will run but will not recieve any successful tokens from the Aproov service. 
+To obtain valid Approov tokens you will need to generate a signed APK (this can be done with Android Studio) and register
+that apk with the Approov Android app registration executable, available from the Approov Admin Portal.
+
