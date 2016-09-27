@@ -1,1 +1,37 @@
-The iOS Shapes demo app.
+The ApproovShapes app is a simple iOS app created to demonstrate the use of
+CriticalBlue's Approov service to allow your servers to validate the authenticity
+of mobile app and therefore make informed decisions about network traffic handling.
+
+The app is designed to be in conjunction with the included web server
+(approov/shapes/server/runServer.py) which must be running prior to launching
+the app.
+
+The ApproovShapes/ApproovShapes.xcodeproj project can be loaded into Xcode.
+The app is written in Swift for iOS 8 and above.
+
+The app is designed to work with an embedded Approov framework (Approov.framework)
+which is available from a registered user's Approov Admin Portal. The framework
+should be included at the top-level directory so that it can be linked with the
+project. In addition to this, the app must be exported as an ipa file and registered
+with the Approov Cloud Service using the Integration Tools available from the
+Approov Admin Portal.
+
+There are two view controllers in the app: LoginViewController and ShapeViewController.
+The login view controller demonstrates the basic use of the Approov framework by:
+1. Registering an observer in the notification center for Approov token fetch updates.
+2. Pre-fetching a cryptographically-secure, time-limited Approov token ahead of
+   time of use to maximise user experience.
+3. Fetching an Approov token when required (which has a high probability of using
+   an internally-cached token if it still has useful lifetime).
+4. Using the fetched Approov token in an HTTP request to the local Shapes server
+   which validates the authenticity of the app and, if valid, provides a random
+   shape to display in the shape view controller.
+
+NOTE: The application will fail the Approov authenticity checks if run in debug
+mode or run in the simulator. It must be run in release mode on a real device.
+
+WARNING: This app disables SSL communication with the Shapes server by enabling
+the NSAllowsArbitraryLoads option for NSAppTransportSecurity in the Info.plist
+file. This is necessary to avoid providing a proper SSL certificate in the demo
+server or installing a self-signed root certificate on the test device. This
+is for demonstration purposes and not recommended for production apps.
