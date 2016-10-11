@@ -70,7 +70,7 @@ public class RequestShape extends Activity {
         mAttestation = new ApproovAttestation(mPlatformSpecifics);
 
         mTokenReceiver = new TokenReceiver();
-        registerReceiver(mTokenReceiver, new IntentFilter("com.criticalblue.approov.TokenUpdate"));
+        mAttestation.registerBroadcastReceiver(mTokenReceiver);
 
         // Instantiate the RequestQueue.
         mQueue = Volley.newRequestQueue(this);
