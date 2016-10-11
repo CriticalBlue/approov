@@ -33,14 +33,18 @@ import com.criticalblue.attestationlibrary.android.AndroidPlatformSpecifics;
 
 public class RequestShape extends Activity {
 
-    // For manually testing attestation
+    // Approov SDK Objects
     ApproovAttestation mAttestation;
     AndroidPlatformSpecifics mPlatformSpecifics;
 
     // Listener for new token received events from Approov library
     TokenReceiver mTokenReceiver;
 
-    // The last token received from Approov servers
+    /**
+     * The last token received from Approov servers.
+     * This should NOT be held for any length of time but should be use immediately on receipt.
+     * A new token is guaranteed to be valid for 5 seconds.
+     */
     String mLastToken = "";
 
     // The view displayed by this activity. Shows simple text to feed information to user
@@ -65,9 +69,10 @@ public class RequestShape extends Activity {
 
         mTextView = (TextView) findViewById(R.id.request_text);
 
-        // For manually testing attestation
-        mPlatformSpecifics = new AndroidPlatformSpecifics(getApplicationContext());
-        mAttestation = new ApproovAttestation(mPlatformSpecifics);
+        // Grab the Approov SDK objects from the Application singleton
+        Shapes aShapesApp = (Shapes) getApplicationContext();
+        mPlatformSpecifics = aShapesApp.getAndroidPlatformSpecifics();
+        mAttestation = aShapesApp.getApproovAttestation();
 
         mTokenReceiver = new TokenReceiver();
 
