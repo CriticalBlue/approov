@@ -70,7 +70,6 @@ public class RequestShape extends Activity {
         mAttestation = new ApproovAttestation(mPlatformSpecifics);
 
         mTokenReceiver = new TokenReceiver();
-        mAttestation.registerBroadcastReceiver(mTokenReceiver);
 
         // Instantiate the RequestQueue.
         mQueue = Volley.newRequestQueue(this);
@@ -84,6 +83,18 @@ public class RequestShape extends Activity {
      */
     public void requestToken(View pView){
         mAttestation.fetchApproovToken();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mAttestation.unregisterBroadcastReceiver(mTokenReceiver);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mAttestation.registerBroadcastReceiver(mTokenReceiver);
     }
 
     /**
