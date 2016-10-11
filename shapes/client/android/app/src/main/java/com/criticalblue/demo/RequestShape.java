@@ -157,6 +157,7 @@ public class RequestShape extends Activity {
                         Intent intent = new Intent(getBaseContext(), DisplayShape.class);
                         intent.putExtra("Shape", response);
                         startActivity(intent);
+                        finish();
                     }
                 }, new Response.ErrorListener() {
             @Override

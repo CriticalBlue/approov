@@ -38,6 +38,7 @@ public class DisplayShape extends Activity {
         // Send intent to return to request a new shape
         Intent intent = new Intent(getBaseContext(), RequestShape.class);
         startActivity(intent);
+        finish();
     }
 
 }
