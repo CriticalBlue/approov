@@ -33,14 +33,17 @@ def verifyToken(token, clientIP):
     # Token could not be decoded, token is bad
     return 0
 
-  # Get IP Hash from token contents
-  issuedIP = (tokenContents['ip'])
-  return 1
+  # Get IP Hash from token contents if present then check it
+  try:
+    issuedIP = (tokenContents['ip'])
 
-  # Compare the issued IP hash with the hash of the requester IP
-  if clientIP != issuedIP:
-    # Requester IP did not match issued IP
-    return 0
+    # Compare the issued IP hash with the hash of the requester IP
+    if clientIP != issuedIP:
+        # Requester IP did not match issued IP
+        return 0
+  except:
+    # There is no IP claim, we don't need to check it
+    pass
 
   # Token was decoded successfully, token is good
   return 1
