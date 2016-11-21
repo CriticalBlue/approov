@@ -16,7 +16,7 @@ class ShapeViewController: UIViewController {
     /* The name of the random shape we got from our server */
     var shapeName: String!
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
         
